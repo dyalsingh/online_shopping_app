@@ -1,22 +1,18 @@
 version: "3.8"
-
 services:
-
-  online_shop:
-    build:
-      context: .
-    container_name: online_shop
-    ports:
-      - "5173:5173"
-    restart: always
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:5173/"]
-      interval: 60s
-      timeout: 10s
-      retries: 5
-    networks:
-      - online_shop
-
-networks:
-  online_shop:
-    driver: bridge
+     shopping-app:
+           build:
+               context: .
+               dockerfile: Dockerfile-multi
+           container_name: shopping-app
+           ports:
+              - "5173:5173"
+           restart: always
+           healthcheck:
+                    test: ["CMD", "curl", "-f", "http://localhost:5173/"]
+                    interval: 10s
+                    retries: 5
+                    start-period: 60s
+                    timeout: 10s
+           networks:
+                 - shopping-app
