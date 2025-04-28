@@ -4,8 +4,6 @@
 # Logs
 *.log
 
-# Ignore node modules 
-node_modules
 
 # Ignore temporary files
 *.tmp
